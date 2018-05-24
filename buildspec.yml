@@ -1,0 +1,15 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Restore started on `date`
+      - dotnet restore ASPnetcore-MVC-Web/LexWebChatbot/LexWebChatbot.csproj
+  build:
+    commands:
+      - echo Build started on `date`
+      - dotnet publish -c release -o ./build_output ASPnetcore-MVC-Web/LexWebChatbot/LexWebChatbot.csproj
+artifacts:
+  files:
+    - ASPnetcore-MVC-Web/LexWebChatbot/build_output/**/*
+    - scripts/**/*
+    - appspec.yml
